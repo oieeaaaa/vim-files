@@ -3,32 +3,34 @@
 " ======================
 call plug#begin('~/.vim/plugged')
 
-Plug 'neovim/nvim-lspconfig'
-Plug 'preservim/nerdcommenter'
-Plug 'gruvbox-community/gruvbox'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'vim-airline/vim-airline'
+" IMPORTANT
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-fugitive'
-Plug 'dart-lang/dart-vim-plugin'
+Plug 'sheerun/vim-polyglot'
 Plug 'natebosch/vim-lsc'
+
+" LANGUAGE SPECIFIC
 Plug 'natebosch/vim-lsc-dart'
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'jwalton512/vim-blade'
-Plug 'evidens/vim-twig'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'dart-lang/dart-vim-plugin'
 Plug 'heavenshell/vim-jsdoc', { 
   \ 'for': ['javascript', 'javascript.jsx','typescript'], 
   \ 'do': 'make install'
 \}
+
+" BEAUTIFICATIONS
+Plug 'gruvbox-community/gruvbox'
+Plug 'preservim/nerdcommenter'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
 " ====================== 
 " GLOBALS 
 " ======================
+
 " Theme stuff here
 set t_Co=256
 set t_ut=
@@ -45,6 +47,7 @@ set background=dark
 set nocompatible
 filetype indent plugin on
 syntax on " enable syntax processing
+set guicursor=
 set nobackup
 set noswapfile " prevent vim from making .swp files
 set undodir=~/.vim/undodir
@@ -67,6 +70,7 @@ set laststatus=2
 " ====================== 
 " DISPLAY 
 " ======================
+
 set hidden
 set enc=utf-8
 set cursorline " visually highlight current line
@@ -80,6 +84,7 @@ let g:netrw_liststyle = 3 " default to tree stucture
 " ====================== 
 " KEY REMAPPING 
 " ======================
+
 let mapleader = " "
 set pastetoggle=<F10>
 nnoremap <C-k> :Ex<CR>
@@ -89,20 +94,17 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 
-" Move to the middle of the current line with respect to its line length
-nnoremap <expr> gM (virtcol('$') / 2) . '<Bar>'
-xnoremap <expr> gM (virtcol('$') / 2) . '<Bar>'
-
 " ====================== 
 " PLUGINS SPECIFIC CONFIGS
 " ======================
+
 " COC
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
-xmap <leader>a  <Plug>(coc-codeaction-selected)
+xmap <silent> ga <Plug>(coc-codeaction-selected)
+nmap <silent> gs :CocSearch<Space>
+nmap <silent> gc :CocCommand<CR>
 nmap <leader>rr <Plug>(coc-rename)
-nmap <leader>s :CocSearch<Space>
-nmap <leader>c :CocCommand<CR>
 nmap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -125,6 +127,7 @@ nmap <leader>gf :diffget //2<CR>
 nmap <leader>gh :diffget //3<CR>
 
 " FZF
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 nnoremap <C-p> :Files<CR>
 nnoremap <leader>fgi :GFiles<CR>
 nnoremap <leader>fgs :GFiles?<CR>
