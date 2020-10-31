@@ -78,8 +78,8 @@ set relativenumber " show relative line numbers
 set number " show line numbers (hybrid line numbers when paired with relativenumber option)
 set wildmenu " Display all matching files on tab complete
 set colorcolumn=80 " set a line guide to limit 80 characters per line
-hi Normal guibg=NONE ctermbg=NONE
 let g:netrw_liststyle = 3 " default to tree stucture
+hi Normal guibg=NONE ctermbg=NONE
 
 " ====================== 
 " KEY REMAPPING 

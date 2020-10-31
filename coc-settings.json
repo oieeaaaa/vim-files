@@ -1,0 +1,20 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "dart",
+    "html",
+    "javascript",
+    "scss",
+    "sass",
+    "css"
+  ],
+  "flutter.lsp.initialization.closingLabels": true,
+  "eslint.autoFixOnSave": true,
+  "stylelint.enable": true,
+  "stylelint.filetypes": ["scss", "sass", "css"],
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "wxss.validate": false,
+  "stylelintplus.autoFixOnSave": true,
+  "stylelintplus.cssInJs": true
+}
