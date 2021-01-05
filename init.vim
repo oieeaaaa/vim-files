@@ -7,8 +7,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'natebosch/vim-lsc'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " LANGUAGE SPECIFIC
+Plug 'pantharshit00/vim-prisma'
 Plug 'natebosch/vim-lsc-dart'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'heavenshell/vim-jsdoc', { 
@@ -21,9 +25,8 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'preservim/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
@@ -94,16 +97,23 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 
+" width of window resize
+nnoremap <leader>1 :2winc ><CR> 
+nnoremap <leader>2 :2winc <<CR>
+
+" height of window resize
+nnoremap <leader>9 :res +2<CR> 
+nnoremap <leader>8 :res -2<CR>
+
 " ====================== 
 " PLUGINS SPECIFIC CONFIGS
 " ======================
 
 " COC
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 xmap <silent> ga <Plug>(coc-codeaction-selected)
-nmap <silent> gs :CocSearch<Space>
-nmap <silent> gc :CocCommand<CR>
 nmap <leader>rr <Plug>(coc-rename)
 nmap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -120,6 +130,7 @@ let g:vim_jsx_pretty_highlight_close_tag = 1
 " AIRLINE
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " FUGITIVE
 nmap <leader>gs :G<bar> :only<CR>
