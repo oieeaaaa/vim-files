@@ -39,6 +39,9 @@ Plug 'Shougo/neosnippet-snippets'
 " Print function signatures in echo area
 Plug 'Shougo/echodoc.vim'
 
+" For code comments
+Plug 'preservim/nerdcommenter'
+
 " === Git Plugins === "
 " Enable git changes to be shown in sign column
 Plug 'mhinz/vim-signify'
@@ -55,6 +58,8 @@ Plug 'mxw/vim-jsx'
 Plug 'heavenshell/vim-jsdoc'
 
 " === Syntax Highlighting === "
+" Syntax highlighting for everything
+Plug 'sheerun/vim-polyglot'
 
 " Syntax highlighting for nginx
 Plug 'chr4/nginx.vim'

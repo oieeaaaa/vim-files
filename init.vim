@@ -1,6 +1,8 @@
 scriptencoding utf-8
 source ~/.config/nvim/plugins.vim
 
+filetype indent plugin on
+
 " ============================================================================ "
 " ===                           EDITING OPTIONS                            === "
 " ============================================================================ "
@@ -9,7 +11,7 @@ source ~/.config/nvim/plugins.vim
 let g:mapleader=' '
 
 " Disable line numbers
-set nonumber
+set number relativenumber
 
 " Don't show last command
 set noshowcmd
@@ -25,7 +27,7 @@ set hidden
 set expandtab
 
 " Change number of spaces that a <Tab> counts for during editing ops
-set softtabstop=2
+set tabstop=2 softtabstop=2
 
 " Indentation amount for < and > commands.
 set shiftwidth=2
@@ -410,6 +412,8 @@ nmap <C-l> <C-w>l
 nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
 nmap <silent> <leader>dj <Plug>(coc-implementation)
+nmap <silent> <leader>rr <Plug>(coc-rename)
+nmap <silent> <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 nnoremap <silent> <leader>ds :<C-u>CocList -I -N --top symbols<CR>
 
 " === vim-better-whitespace === "
@@ -437,6 +441,11 @@ nmap <leader>z :JsDoc<CR>
 " Used when you want to paste over something without it getting copied to
 " Vim's default buffer
 vnoremap <leader>p "_dP
+
+" === fugitive shortcuts ==="
+nmap <leader>gs :G<bar> :only<CR>
+nmap <leader>gf :diffget //2<CR>
+nmap <leader>gh :diffget //3<CR>
 
 " ============================================================================ "
 " ===                                 MISC.                                === "
