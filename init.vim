@@ -70,18 +70,6 @@ inoremap <silent><expr> <TAB>
 "Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" === NeoSnippet === "
-" Map <C-k> as shortcut to activate snippet if available
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-
-" Load custom snippets from snippets folder
-let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
-
-" Hide conceal markers
-let g:neosnippet#enable_conceal_markers = 0
-
 " === NERDTree === "
 " Show hidden files/directories
 let g:NERDTreeShowHidden = 1
@@ -141,10 +129,6 @@ catch
   echo 'Airline not installed. It should work after running :PlugInstall'
 endtry
 
-" === echodoc === "
-" Enable echodoc on startup
-let g:echodoc#enable_at_startup = 1
-
 " === vim-javascript === "
 " Enable syntax highlighting for JSDoc
 let g:javascript_plugin_jsdoc = 1
@@ -152,9 +136,6 @@ let g:javascript_plugin_jsdoc = 1
 " === vim-jsx === "
 " Highlight jsx syntax even in non .jsx files
 let g:jsx_ext_required = 0
-
-" === javascript-libraries-syntax === "
-let g:used_javascript_libs = 'underscore,requirejs,chai,jquery'
 
 " === Signify === "
 let g:signify_sign_delete = '-'
@@ -284,22 +265,11 @@ nmap <silent> <leader>rr <Plug>(coc-rename)
 nmap <silent> <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 nnoremap <silent> <leader>ds :<C-u>CocList -I -N --top symbols<CR>
 
-" === vim-better-whitespace === "
-"   <leader>y - Automatically remove trailing whitespace
-nmap <leader>y :StripWhitespace<CR>
-
 " === Search shorcuts === "
 "   <leader>h - Find and replace
 "   <leader>/ - Clear highlighted search terms while preserving history
 map <leader>h :%s///<left><left>
 nmap <silent> <leader>/ :nohlsearch<CR>
-
-" === Easy-motion shortcuts ==="
-"   <leader>w - Easy-motion highlights first word letters bi-directionally
-map <leader>w <Plug>(easymotion-bd-w)
-
-" Allows you to save files you opened without write permissions via sudo
-cmap w!! w !sudo tee %
 
 " === vim-jsdoc shortcuts ==="
 " Generate jsdoc for function under cursor
@@ -315,6 +285,9 @@ nmap <leader>gs :G<bar> :only<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gh :diffget //3<CR>
 
+" === fzf shortcuts ==="
+nmap <leader>p :FZF<CR>
+
 " ============================================================================ "
 " ===                                 MISC.                                === "
 " ============================================================================ "
@@ -328,9 +301,6 @@ set ignorecase
 
 " if the search string has an upper case letter in it, the search will be case sensitive
 set smartcase
-
-" Automatically re-read file if a change was detected outside of vim
-set autoread
 
 " Enable line numbers
 set number
