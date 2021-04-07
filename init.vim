@@ -51,6 +51,11 @@ set cmdheight=1
 " or 'The only match'
 set shortmess+=c
 
+" === Compilation Settings === "
+
+" Makes a copy of the file and overwrite the original one
+set backupcopy=yes
+
 " ============================================================================ "
 " ===                           PLUGIN SETUP                               === "
 " ============================================================================ "
@@ -286,7 +291,7 @@ nmap <leader>gf :diffget //2<CR>
 nmap <leader>gh :diffget //3<CR>
 
 " === fzf shortcuts ==="
-nmap <leader>p :FZF<CR>
+nmap <leader>f :FZF<CR>
 
 " ============================================================================ "
 " ===                                 MISC.                                === "
